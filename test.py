@@ -6,7 +6,7 @@ ptk = td.type_dict.keys()
 ptype = list(ptk)
 
 
-p_type = ['Ape'][0]
+p_type = ['Female'][0]
 
 hk = td.head_dict.keys()
 head = list(hk)
@@ -43,18 +43,14 @@ print('Head:', p_head)
 
 
 def eyeschoice(p_type, p_head, feyes, eyes):
-    if p_type == ['Female'][0] and p_head != ['Pink pilot hat'][0] or p_head != ['Pilot hat'][0] and  p_head != ['Welding goggles'][0]:
-        eyes = random.choices(feyes, weights = (30, 50, 30, 40, 50, 40, 60, 40, 50, 40, 30, 150), k=1)[0]
-        return eyes
-    elif p_type == ['Female'][0] and p_head == ['Pink pilot hat'][0] or p_head == ['Pilot hat'][0] or p_head == ['Welding goggles'][0]:
-        eyes = random.choices(feyes, weights = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100), k=1)[0]
-        return eyes
-    elif p_type == ['Male'][0] or p_type == ['Alien'][0] or p_type == ['Zombie'][0] or p_type == ['Ape'][0] and p_head == ['Welding goggles'][0]:
-        eyes = random.choices(eyes, weights = (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100), k=1)[0]
-        return eyes
-    else:
-        eyes = random.choices(eyes, weights = (30, 50, 30, 40, 50, 40, 60, 40, 50, 40, 150), k=1)[0]
-        return eyes
+
+	if p_type == ['Female'][0] and p_head != ['Pink pilot hat'][0]:
+		eyes = random.choices(feyes, weights = (30, 50, 30, 40, 50, 40, 60, 40, 50, 40, 30, 150), k=1)[0]
+		return eyes
+	else:
+		return 'error'
+
+
 p_eyes = eyeschoice(p_type, p_head, feyes, eyes)
 
 if p_type == ['Female'][0]:
