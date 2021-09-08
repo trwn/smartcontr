@@ -4,6 +4,7 @@ import random
 import csv
 import os
 import numpy as np
+import json
 
 dirname = os.path.dirname(__file__)
 
@@ -105,10 +106,10 @@ psychadelicmouth = list(pmk)
 with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
     writer = csv.writer(csvfile, delimiter=',',
                             quotechar='|', quoting=csv.QUOTE_MINIMAL)
-    writer.writerow( ['Number'] + ['Background'] + ['Punk type'] + ['Mouth'] + ['Accessory'] + ['Eyes'] + ['Head'] + ['Beard'] + ['Psychadelic eyes'] + ['psychadelic ptype'] + ['psychadelic head'] + ['psychadelic acc'] + ['psychadelic mouth'])
+    writer.writerow( ['N'] + ['Background'] + ['Punk type'] + ['Mouth'] + ['Accessory'] + ['Eyes'] + ['Head'] + ['Beard'] + ['Psych DNA'])
 
 
-    for x in range(0, 100):
+    for x in range(0, 10):
         print('x: ' + str(x))
 
         # determine background
@@ -259,7 +260,7 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
             return pe
         pp_eyes = psycheyes(psychadeliceyes)
         psych_eyes = td.psych_dict.get(pp_eyes)
-        print('Psych-eyes:', pp_eyes)
+
 
 
         # determine psych-type
@@ -268,7 +269,7 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
             return pt
         pp_type =psychtype(psychadelicptype)
         psych_type = td.psych_dict.get(pp_type)
-        print('Psych-type:', pp_type)
+
 
 
         # determine psych-head
@@ -277,7 +278,7 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
             return ph
         pp_head = psychhead(psychadelichead)
         psych_head = td.psych_dict.get(pp_head)
-        print('Psych-head:', pp_head)
+
 
 
         # determine psych-accessory
@@ -286,7 +287,7 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
             return pa
         pp_acc = psychhead(psychadelicacc)
         psych_acc = td.psych_dict.get(pp_acc)
-        print('Psych-acc:', pp_acc)
+
 
 
         # determine psych-mouth
@@ -295,13 +296,23 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
             return pm
         pp_mouth = psychmouth(psychadelicmouth)
         psych_mouth = td.psych_dict.get(pp_mouth)
-        print('Psych-mouth:', pp_mouth)
+
+
+        Psych_DNA_list = [(pp_eyes), (pp_type), (pp_head), (pp_acc), (pp_mouth)]
+        Psych_DNA = ",".join(Psych_DNA_list)
+
+        
+        
+        print('Psych DNA:', Psych_DNA)
+
+
+
 
 # creating CSV file
         x += 1
         row = x
         print('row :' + str(row))
-        writer.writerow([row, p_bg, p_type, p_mouth, p_acc, p_eyes, p_head, p_beard, pp_eyes, pp_type, pp_head, pp_acc, pp_mouth])
+        writer.writerow([row, p_bg, p_type, p_mouth, p_acc, p_eyes, p_head, p_beard, Psych_DNA])
 
 
 
@@ -620,6 +631,10 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
             os.remove(dirname + '/temp2/whiteadded.png')
             os.remove(dirname + '/temp2/whiteremove.png')
             os.remove(dirname + '/temp2/accadded.png')
+
+
+
+
 
         #bg and type creation
         comb1()
