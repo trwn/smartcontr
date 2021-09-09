@@ -105,7 +105,7 @@ psychadelicmouth = list(pmk)
 
 with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
     writer = csv.writer(csvfile, delimiter=',',
-                            quotechar='|', quoting=csv.QUOTE_MINIMAL)
+                            quotechar=' ', quoting=csv.QUOTE_MINIMAL)
     writer.writerow( ['N'] + ['Background'] + ['Punk type'] + ['Mouth'] + ['Accessory'] + ['Eyes'] + ['Head'] + ['Beard'] + ['Psych DNA'])
 
 
@@ -299,7 +299,7 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
 
 
         Psych_DNA_list = [(pp_eyes), (pp_type), (pp_head), (pp_acc), (pp_mouth)]
-        Psych_DNA = ",".join(Psych_DNA_list)
+        Psych_DNA = " ".join(Psych_DNA_list)
 
         
         
