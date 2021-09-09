@@ -33,7 +33,7 @@ eyes_dict = {'3d glasses': dirname + '/images/Eyes/3d glasses.png',
 'Small glasses': dirname + '/images/Eyes/small glasses.png',
 'Sun glasses': dirname + '/images/Eyes/Sunglasses.png',
 'VR': dirname + '/images/Eyes/vr.png',
-'zNone': dirname + '/images/Eyes/znone.png'}
+'No Glasses': dirname + '/images/Eyes/znone.png'}
 
 feyes_dict = {'3d glasses': dirname + '/images/Feyes/3d glasses.png',
 'Big sunglasses': dirname + '/images/Feyes/Big Sunglasses.png',
@@ -46,7 +46,7 @@ feyes_dict = {'3d glasses': dirname + '/images/Feyes/3d glasses.png',
 'Small glasses': dirname + '/images/Feyes/small glasses.png',
 'Sun glasses': dirname + '/images/Feyes/Sunglasses.png',
 'VR': dirname + '/images/Feyes/vr.png',
-'zNone': dirname + '/images/Feyes/znone.png'}
+'No Glasses': dirname + '/images/Feyes/znone.png'}
 
 beard_dict = {'Beard': dirname + '/images/Beard/beard.png',
 'Big beard': dirname + '/images/Beard/big beard.png',
@@ -54,7 +54,7 @@ beard_dict = {'Beard': dirname + '/images/Beard/beard.png',
 'Go-T': dirname + '/images/Beard/got.png',
 'Handle-bar mustache': dirname + '/images/Beard/handlebar.png',
 'Mutton-chops': dirname + '/images/Beard/muttonchops.png',
-'zNone': dirname + '/images/Beard/znone.png'}
+'No Beard': dirname + '/images/Beard/znone.png'}
 
 
 acc_dict = {'Chain': dirname + '/images/Acc/chain.png',
@@ -64,7 +64,7 @@ acc_dict = {'Chain': dirname + '/images/Acc/chain.png',
 'Mask': dirname + '/images/Acc/mask.png',
 'Pipe': dirname + '/images/Acc/pipe.png',
 'Vape': dirname + '/images/Acc/vape.png',
-'zNone': dirname + '/images/Acc/znone.png'}
+'No Accessory': dirname + '/images/Acc/znone.png'}
 
 facc_dict = {'Chain': dirname + '/images/Facc/chain.png',
 'Cig': dirname + '/images/Facc/cig.png',
@@ -72,7 +72,7 @@ facc_dict = {'Chain': dirname + '/images/Facc/chain.png',
 'Earring': dirname + '/images/Facc/earring.png',
 'Pipe': dirname + '/images/Facc/pipe.png',
 'Vape': dirname + '/images/Facc/vape.png',
-'zNone': dirname + '/images/Facc/znone.png'}
+'No Accessory': dirname + '/images/Facc/znone.png'}
 
 head_dict = {'Bandana': dirname + '/images/Head/bandana.png',
 'Beanie 1': dirname + '/images/Head/beanie.png',
@@ -91,7 +91,7 @@ head_dict = {'Bandana': dirname + '/images/Head/bandana.png',
 'Spiky hair': dirname + '/images/Head/spiky hair.png',
 'Top hat': dirname + '/images/Head/tophat.png',
 'Welding goggles': dirname + '/images/Head/welding goggs.png',
-'zNone': dirname + '/images/Head/znone.png'}
+'No Hat': dirname + '/images/Head/znone.png'}
 
 fhead_dict = {'Bandana': dirname + '/images/Fhead/fbandana.png',
 'Beanie 1': dirname + '/images/Fhead/fbeanie.png',
@@ -108,12 +108,12 @@ fhead_dict = {'Bandana': dirname + '/images/Fhead/fbandana.png',
 'Mohawk': dirname + '/images/Fhead/fmohawk.png',
 'Orange hair': dirname + '/images/Fhead/forange hair.png',
 'Pilot hat': dirname + '/images/Fhead/fpilot hat.png',
-'Pink pilot hat': dirname + '/images/Fhead/fpink hair hat.png',
+'Pink pilot hat': dirname + '/images/Fhead/fpink pilot hat.png',
 'Police hat': dirname + '/images/Fhead/fpolice hat.png',
 'Tiara': dirname + '/images/Fhead/ftiara.png',
 'Top hat': dirname + '/images/Fhead/ftophat.png',
 'Welding goggles': dirname + '/images/Fhead/welding goggs.png',
-'zNone': dirname + '/images/Fhead/znone.png'}
+'No Hat': dirname + '/images/Fhead/znone.png'}
 
 psych_dict = {'1': dirname +'/images/Psychadelic/1.png',
 '2': dirname +'/images/Psychadelic/2.png',
