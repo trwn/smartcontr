@@ -4,7 +4,7 @@ import random
 import csv
 import os
 import numpy as np
-import json
+
 
 dirname = os.path.dirname(__file__)
 
@@ -106,11 +106,11 @@ psychadelicmouth = list(pmk)
 with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
     writer = csv.writer(csvfile, delimiter=',',
                             quotechar=' ', quoting=csv.QUOTE_MINIMAL)
-    writer.writerow( ['N'] + ['Background'] + ['Punk type'] + ['Mouth'] + ['Accessory'] + ['Eyes'] + ['Head'] + ['Beard'] + ['Psych DNA'])
+    writer.writerow( ['Name'] + ['Background'] + ['Punk type'] + ['Mouth'] + ['Accessory'] + ['Eyes'] + ['Head'] + ['Beard'] + ['Psych DNA'])
 
 
     for x in range(0, 10):
-        print('x: ' + str(x))
+        print('PsychPunk' + str(x))
 
         # determine background
         def bgchoice(background):
@@ -304,15 +304,16 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
         
         
         print('Psych DNA:', Psych_DNA)
+        print()
 
 
 
 
 # creating CSV file
         x += 1
+        name = 'PsychPunk #' + str(x)
         row = x
-        print('row :' + str(row))
-        writer.writerow([row, p_bg, p_type, p_mouth, p_acc, p_eyes, p_head, p_beard, Psych_DNA])
+        writer.writerow([name, p_bg, p_type, p_mouth, p_acc, p_eyes, p_head, p_beard, Psych_DNA])
 
 
 
