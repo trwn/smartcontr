@@ -109,7 +109,7 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
     writer.writerow( ['Name'] + ['Background'] + ['Punk type'] + ['Mouth'] + ['Accessory'] + ['Eyes'] + ['Head'] + ['Beard'] + ['Psych DNA'])
 
 
-    for x in range(0, 10):
+    for x in range(0, 100):
         print('PsychPunk' + str(x))
 
         # determine background
@@ -124,7 +124,7 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
 
         # determine type
         def ptypechoice(ptype):
-            pt = random.choices(ptype, weights = (10, 20, 400, 600, 80), k=1)[0]
+            pt = random.choices(ptype, weights = (2, 5, 400, 600, 6), k=1)[0]
             return pt
         p_type = ptypechoice(ptype)
         punk_type = td.type_dict.get(p_type)
@@ -154,10 +154,10 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
         # determine accessory
         def accessorychoice(p_type, faccessory, accessory):
             if p_type == ['Female'][0]:
-                acc = random.choices(faccessory, weights = (20, 40, 5, 30, 100, 15, 35), k=1)[0]
+                acc = random.choices(faccessory, weights = (20, 22, 5, 30, 10, 10, 15, 75), k=1)[0]
                 return acc
             else:
-                acc = random.choices(accessory, weights = (20, 40, 5, 30, 10, 100, 15, 35), k=1)[0]
+                acc = random.choices(accessory, weights = (20, 22, 5, 30, 10, 10, 15, 75), k=1)[0]
                 return acc
         p_acc = accessorychoice(p_type, faccessory, accessory)
 
@@ -173,10 +173,10 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
                 # determine head choice
         def headchoice(p_type, fhead, head):
             if p_type == ['Female'][0]:
-                head = random.choices(fhead, weights = (50, 5, 30, 30, 30, 20, 30, 50, 30, 30, 40, 40, 40, 5, 30, 40, 10, 20, 20, 10, 10), k=1)[0]
+                head = random.choices(fhead, weights = (50, 5, 30, 30, 30, 20, 30, 50, 30, 30, 40, 40, 40, 5, 30, 40, 10, 20, 20, 10, 20), k=1)[0]
                 return head
             else:
-                head = random.choices(head, weights = (50, 5, 30, 30, 30, 20, 30, 50, 30, 30, 40, 40, 40, 5, 30, 40, 10, 10), k=1)[0]
+                head = random.choices(head, weights = (50, 5, 30, 30, 30, 20, 30, 50, 30, 30, 40, 40, 40, 5, 30, 40, 10, 20), k=1)[0]
                 return head
 
         p_head = headchoice(p_type, fhead, head)
@@ -290,15 +290,15 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
 
 
 
-        # determine psych-mouth
-        def psychmouth(psychadelicmouth):
-            pm = random.choices(psychadelicmouth, weights = (10, ) *51, k=1)[0]
-            return pm
-        pp_mouth = psychmouth(psychadelicmouth)
-        psych_mouth = td.psych_dict.get(pp_mouth)
+        # # determine psych-mouth
+        # def psychmouth(psychadelicmouth):
+        #     pm = random.choices(psychadelicmouth, weights = (10, ) *51, k=1)[0]
+        #     return pm
+        # pp_mouth = psychmouth(psychadelicmouth)
+        # psych_mouth = td.psych_dict.get(pp_mouth)
 
 
-        Psych_DNA_list = [(pp_eyes), (pp_type), (pp_head), (pp_acc), (pp_mouth)]
+        Psych_DNA_list = [(pp_eyes), (pp_type), (pp_head), (pp_acc)]
         Psych_DNA = " ".join(Psych_DNA_list)
 
         
@@ -369,9 +369,9 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
                 paa = np.asarray(psychaimg)
 
 
-        psychmimg = psych_mouth
-        with Image.open(psychmimg) as psychmimg:
-                pma = np.asarray(psychmimg)
+        # psychmimg = psych_mouth
+        # with Image.open(psychmimg) as psychmimg:
+        #         pma = np.asarray(psychmimg)
 
 
         def comb1():
@@ -643,20 +643,14 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
         psychtypeimg()
         white()
         delstuff()
-        #eyes
-        comb4()
-        removewhiteeye()
-        eyepsych()
-        white()
-        delstuff1()
-        #mouth
-        mouthhimg()
         #beard
         comb5()
         removewhiteeye()
         beardpsych()
         white()
         delstuff2()
+        #mouth
+        mouthhimg()
         #Head
         comb3()
         removewhitehead()
@@ -667,7 +661,13 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
         comb2()
         removewhiteeye()
         accpsych()
+        white()
+        delstuff1()
+        #eyes
+        comb4()
+        removewhiteeye()
+        eyepsych()
         white2()
         delstuff3()
-
-
+        
+        
