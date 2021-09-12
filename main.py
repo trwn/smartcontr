@@ -106,10 +106,10 @@ psychadelicmouth = list(pmk)
 with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
     writer = csv.writer(csvfile, delimiter=',',
                             quotechar=' ', quoting=csv.QUOTE_MINIMAL)
-    writer.writerow( ['Name'] + ['Background'] + ['Punk type'] + ['Mouth'] + ['Accessory'] + ['Eyes'] + ['Head'] + ['Beard'] + ['Psych DNA'])
+    writer.writerow( ['Location'] + ['Name'] + ['Background'] + ['Punk type'] + ['Mouth'] + ['Accessory'] + ['Eyes'] + ['Head'] + ['Beard'] + ['Psych DNA'])
 
 
-    for x in range(0, 100):
+    for x in range(0, 10):
         print('PsychPunk' + str(x))
 
         # determine background
@@ -301,19 +301,21 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
         Psych_DNA_list = [(pp_eyes), (pp_type), (pp_head), (pp_acc)]
         Psych_DNA = " ".join(Psych_DNA_list)
 
-        
+        Destination = ()
         
         print('Psych DNA:', Psych_DNA)
         print()
 
 
 
-
+        IMAGES_BASE_URI = "https://ipfs.io/ipfs/QmPEgPZCNiy63BiMwKwXvsUSjauiDGHjGCTgXNKgBotsLY"
 # creating CSV file
         x += 1
-        name = 'PsychPunk #' + str(x)
+        name = 'PsychPunk_' + str(x)
+        metadataIMG = '/PsychPunk_' + str(x)
+        location = (IMAGES_BASE_URI + metadataIMG + '.png')
         row = x
-        writer.writerow([name, p_bg, p_type, p_mouth, p_acc, p_eyes, p_head, p_beard, Psych_DNA])
+        writer.writerow([location,name, p_bg, p_type, p_mouth, p_acc, p_eyes, p_head, p_beard, Psych_DNA])
 
 
 
