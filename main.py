@@ -106,7 +106,7 @@ psychadelicmouth = list(pmk)
 with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
     writer = csv.writer(csvfile, delimiter=',',
                             quotechar=' ', quoting=csv.QUOTE_MINIMAL)
-    writer.writerow(  ['image:'] + ['Name'] + ['Background'] + ['Punk type'] + ['Mouth'] + ['Accessory'] + ['Eyes'] + ['Head'] + ['Beard'] + ['Psych DNA'])
+    writer.writerow(  ['image:'] + ['Description:'] + ['Name'] + ['Background'] + ['Punk type'] + ['Mouth'] + ['Accessory'] + ['Eyes'] + ['Head'] + ['Beard'] + ['Psych DNA'])
 
 
     for x in range(0, 100):
@@ -314,8 +314,9 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
         name = 'PsychPunk_' + str(x)
         metadataIMG = '/PsychPunk_' + str(x)
         image = ''
+        description = ''
         row = x
-        writer.writerow([image, name, p_bg, p_type, p_mouth, p_acc, p_eyes, p_head, p_beard, Psych_DNA])
+        writer.writerow([description, image, name, p_bg, p_type, p_mouth, p_acc, p_eyes, p_head, p_beard, Psych_DNA])
 
 
 
@@ -384,11 +385,11 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
             width = (background.width - typeoverlay.width) // 2
             height = (background.height - typeoverlay.height) // 2
             background.paste(typeoverlay, (width, height), typeoverlay)
-            background.save(dirname + '/temp2/bg_type.png', format="png")
+            background.save(dirname + '/config/temp/bg_type.png', format="png")
 
 
         def removewhitetype():
-            img = Image.open(dirname + '/temp2/bg_type.png')
+            img = Image.open(dirname + '/config/temp/bg_type.png')
             img = img.convert("RGBA")
             datas = img.getdata()
             newData = []
@@ -398,11 +399,11 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
                 else:
                     newData.append(item)
             img.putdata(newData)
-            img.save(dirname + "/temp2/whiteremove.png", "PNG")   
+            img.save(dirname + "/config/temp/whiteremove.png", "PNG")   
 
 
         def psychtypeimg():
-            os.remove(dirname + "/temp2/bg_type.png")
+            os.remove(dirname + "/config/temp/bg_type.png")
             filename1 = Image.fromarray(ppa)
             width, height = filename1.size
             imagee_size = width, height
@@ -412,10 +413,10 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
             x2,y2 = x1+portion_size[0]-1, y1+portion_size[1]-1
             coords = (x1,y1,x2,y2)        
             newimgf = filename1.crop(coords)
-            newimgf.save(dirname + '/temp2/resizepsycht.png')
-            filename = (dirname + '/temp2/whiteremove.png')
+            newimgf.save(dirname + '/config/temp/resizepsycht.png')
+            filename = (dirname + '/config/temp/whiteremove.png')
             frontImage = Image.open(filename)
-            background = Image.open(dirname + '/temp2/resizepsycht.png')
+            background = Image.open(dirname + '/config/temp/resizepsycht.png')
             whitefile = (dirname + '/config/images/white.png')
             white = Image.open(whitefile)
             frontImage = frontImage.convert("RGBA")
@@ -423,12 +424,12 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
             width = (background.width - frontImage.width) // 2
             height = (background.height - frontImage.height) // 2
             white.paste(background, (width, height), background)
-            white.save(dirname + '/temp2/whiteadded.png')
+            white.save(dirname + '/config/temp/whiteadded.png')
 
 
         def white():
-            filename = (dirname + '/temp2/whiteadded.png')
-            filename2 = (dirname + '/temp2/whiteremove.png')
+            filename = (dirname + '/config/temp/whiteadded.png')
+            filename2 = (dirname + '/config/temp/whiteremove.png')
             add = Image.open(filename)
             remove = Image.open(filename2)
             add = add.convert("RGBA")
@@ -436,22 +437,22 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
             width = (add.width - remove.width) // 2
             height = (add.height - remove.height) // 2
             add.paste(remove, (width, height), remove)
-            add.save(dirname + "/temp2/base.png", format="png")  
+            add.save(dirname + "/config/temp/base.png", format="png")  
 
 
         def comb2():
             eyeoverlay = Image.fromarray(aa)
-            background = Image.open(dirname + '/temp2/base.png')
+            background = Image.open(dirname + '/config/temp/base.png')
             eyeoverlay = eyeoverlay.convert("RGBA")
             background = background.convert("RGBA")
             width = (background.width - eyeoverlay.width) // 2
             height = (background.height - eyeoverlay.height) // 2
             background.paste(eyeoverlay, (width, height), eyeoverlay)
-            background.save(dirname + '/temp2/accadded.png', format="png")
+            background.save(dirname + '/config/temp/accadded.png', format="png")
 
 
         def removewhiteeye():
-            img = Image.open(dirname + '/temp2/accadded.png')
+            img = Image.open(dirname + '/config/temp/accadded.png')
             img = img.convert("RGBA")
             datas = img.getdata()
             newData = []
@@ -461,7 +462,7 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
                 else:
                     newData.append(item)
             img.putdata(newData)
-            img.save(dirname + "/temp2/whiteremove.png", "PNG")
+            img.save(dirname + "/config/temp/whiteremove.png", "PNG")
 
 
         def accpsych():
@@ -474,8 +475,8 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
             x2,y2 = x1+portion_size[0]-1, y1+portion_size[1]-1
             coords = (x1,y1,x2,y2)        
             newimgf = filename1.crop(coords)
-            newimgf.save(dirname + '/temp2/resizepsycht.png')
-            filename = (dirname + '/temp2/resizepsycht.png')
+            newimgf.save(dirname + '/config/temp/resizepsycht.png')
+            filename = (dirname + '/config/temp/resizepsycht.png')
             background = Image.open(filename)
             whitefile = (dirname + '/config/images/white.png')
             white = Image.open(whitefile)
@@ -484,12 +485,12 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
             width = (background.width - white.width) // 2
             height = (background.height - white.height) // 2
             white.paste(background, (width, height), background)
-            white.save(dirname + '/temp2/whiteadded.png')
+            white.save(dirname + '/config/temp/whiteadded.png')
 
 
         def white2():            
-            filename = (dirname + '/temp2/whiteadded.png')
-            filename2 = (dirname + '/temp2/whiteremove.png')
+            filename = (dirname + '/config/temp/whiteadded.png')
+            filename2 = (dirname + '/config/temp/whiteremove.png')
             add = Image.open(filename)
             remove = Image.open(filename2)
             add = add.convert("RGBA")
@@ -501,38 +502,38 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
 
 
         def delstuff():
-            os.remove(dirname + '/temp2/whiteadded.png')
-            os.remove(dirname + '/temp2/whiteremove.png')
-            os.remove(dirname + '/temp2/resizepsycht.png')
+            os.remove(dirname + '/config/temp/whiteadded.png')
+            os.remove(dirname + '/config/temp/whiteremove.png')
+            os.remove(dirname + '/config/temp/resizepsycht.png')
 
 
         def delstuff2():
-            os.remove(dirname + '/temp2/whiteadded.png')
-            os.remove(dirname + '/temp2/whiteremove.png')
-            os.remove(dirname + '/temp2/accadded.png')
+            os.remove(dirname + '/config/temp/whiteadded.png')
+            os.remove(dirname + '/config/temp/whiteremove.png')
+            os.remove(dirname + '/config/temp/accadded.png')
 
 
         def delstuff3():            
-            os.remove(dirname + '/temp2/resizepsycht.png')
-            os.remove(dirname + '/temp2/whiteadded.png')
-            os.remove(dirname + '/temp2/whiteremove.png')
-            os.remove(dirname + '/temp2/accadded.png')
-            os.remove(dirname + '/temp2/base.png')
+            os.remove(dirname + '/config/temp/resizepsycht.png')
+            os.remove(dirname + '/config/temp/whiteadded.png')
+            os.remove(dirname + '/config/temp/whiteremove.png')
+            os.remove(dirname + '/config/temp/accadded.png')
+            os.remove(dirname + '/config/temp/base.png')
 
 
         def comb3():
             eyeoverlay = Image.fromarray(ha)
-            background = Image.open(dirname + '/temp2/base.png')
+            background = Image.open(dirname + '/config/temp/base.png')
             eyeoverlay = eyeoverlay.convert("RGBA")
             background = background.convert("RGBA")
             width = (background.width - eyeoverlay.width) // 2
             height = (background.height - eyeoverlay.height) // 2
             background.paste(eyeoverlay, (width, height), eyeoverlay)
-            background.save(dirname + '/temp2/accadded.png', format="png")
+            background.save(dirname + '/config/temp/accadded.png', format="png")
 
 
         def removewhitehead():
-            img = Image.open(dirname + '/temp2/accadded.png')
+            img = Image.open(dirname + '/config/temp/accadded.png')
             img = img.convert("RGBA")
             datas = img.getdata()
             newData = []
@@ -542,7 +543,7 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
                 else:
                     newData.append(item)
             img.putdata(newData)
-            img.save(dirname + "/temp2/whiteremove.png", "PNG")
+            img.save(dirname + "/config/temp/whiteremove.png", "PNG")
 
 
         def headpsych():
@@ -555,8 +556,8 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
             x2,y2 = x1+portion_size[0]-1, y1+portion_size[1]-1
             coords = (x1,y1,x2,y2)        
             newimgf = filename1.crop(coords)
-            newimgf.save(dirname + '/temp2/resizepsycht.png')
-            filename = (dirname + '/temp2/resizepsycht.png')
+            newimgf.save(dirname + '/config/temp/resizepsycht.png')
+            filename = (dirname + '/config/temp/resizepsycht.png')
             background = Image.open(filename)
             whitefile = (dirname + '/config/images/white.png')
             white = Image.open(whitefile)
@@ -565,7 +566,7 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
             width = (background.width - white.width) // 2
             height = (background.height - white.height) // 2
             white.paste(background, (width, height), background)
-            white.save(dirname + '/temp2/whiteadded.png')  
+            white.save(dirname + '/config/temp/whiteadded.png')  
 
 
         def eyepsych():
@@ -578,8 +579,8 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
             x2,y2 = x1+portion_size[0]-1, y1+portion_size[1]-1
             coords = (x1,y1,x2,y2)        
             newimgf = filename1.crop(coords)
-            newimgf.save(dirname + '/temp2/resizepsycht.png')
-            filename = (dirname + '/temp2/resizepsycht.png')
+            newimgf.save(dirname + '/config/temp/resizepsycht.png')
+            filename = (dirname + '/config/temp/resizepsycht.png')
             background = Image.open(filename)
             whitefile = (dirname + '/config/images/white.png')
             white = Image.open(whitefile)
@@ -588,52 +589,52 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
             width = (background.width - white.width) // 2
             height = (background.height - white.height) // 2
             white.paste(background, (width, height), background)
-            white.save(dirname + '/temp2/whiteadded.png')
+            white.save(dirname + '/config/temp/whiteadded.png')
 
 
         def comb4():
             eyeoverlay = Image.fromarray(ea)
-            background = Image.open(dirname + '/temp2/base.png')
+            background = Image.open(dirname + '/config/temp/base.png')
             eyeoverlay = eyeoverlay.convert("RGBA")
             background = background.convert("RGBA")
             width = (background.width - eyeoverlay.width) // 2
             height = (background.height - eyeoverlay.height) // 2
             background.paste(eyeoverlay, (width, height), eyeoverlay)
-            background.save(dirname + '/temp2/accadded.png', format="png")
+            background.save(dirname + '/config/temp/accadded.png', format="png")
 
 
         def comb5():
             eyeoverlay = Image.fromarray(ba)
-            background = Image.open(dirname + '/temp2/base.png')
+            background = Image.open(dirname + '/config/temp/base.png')
             eyeoverlay = eyeoverlay.convert("RGBA")
             background = background.convert("RGBA")
             width = (background.width - eyeoverlay.width) // 2
             height = (background.height - eyeoverlay.height) // 2
             background.paste(eyeoverlay, (width, height), eyeoverlay)
-            background.save(dirname + '/temp2/accadded.png', format="png")
+            background.save(dirname + '/config/temp/accadded.png', format="png")
 
 
         def beardpsych():
-            white = Image.open(dirname + '/temp2/accadded.png')
-            white.save(dirname + '/temp2/whiteadded.png')
+            white = Image.open(dirname + '/config/temp/accadded.png')
+            white.save(dirname + '/config/temp/whiteadded.png')
 
 
         def mouthhimg():
             eyeoverlay = Image.fromarray(ma)
-            background = Image.open(dirname + '/temp2/base.png')
+            background = Image.open(dirname + '/config/temp/base.png')
             eyeoverlay = eyeoverlay.convert("RGBA")
             background = background.convert("RGBA")
             width = (background.width - eyeoverlay.width) // 2
             height = (background.height - eyeoverlay.height) // 2
             background.paste(eyeoverlay, (width, height), eyeoverlay)
-            background.save(dirname + '/temp2/base.png', format="png")
+            background.save(dirname + '/config/temp/base.png', format="png")
 
 
         def delstuff1():
-            os.remove(dirname + '/temp2/resizepsycht.png')
-            os.remove(dirname + '/temp2/whiteadded.png')
-            os.remove(dirname + '/temp2/whiteremove.png')
-            os.remove(dirname + '/temp2/accadded.png')
+            os.remove(dirname + '/config/temp/resizepsycht.png')
+            os.remove(dirname + '/config/temp/whiteadded.png')
+            os.remove(dirname + '/config/temp/whiteremove.png')
+            os.remove(dirname + '/config/temp/accadded.png')
 
 
 
@@ -670,6 +671,3 @@ with open((dirname + '/data/punks.csv'), 'w', newline='') as csvfile:
         removewhiteeye()
         eyepsych()
         white2()
-        delstuff3()
-        
-        
