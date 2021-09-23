@@ -1,0 +1,39 @@
+{
+    "name": "PsychPunk_1",
+    "description": "PsychPunks is a collection of algorithmically generated trippy Punks.",
+    "image": "https://gateway.pinata.cloud/ipfs/QmP9ZqFVWg4tgyX1amn5qfyZSLCtSbwcudug2rcxsct4zj/PsychPunk_1.png",
+    "attributes": [
+        {
+            "trait_type": "Background:",
+            "value": "Baby blue"
+        },
+        {
+            "trait_type": "Type:",
+            "value": "Alien"
+        },
+        {
+            "trait_type": "Mouth:",
+            "value": "Flat"
+        },
+        {
+            "trait_type": "Accessory:",
+            "value": "Earring"
+        },
+        {
+            "trait_type": "Eyes:",
+            "value": "Small glasses"
+        },
+        {
+            "trait_type": "Head:",
+            "value": "Cap"
+        },
+        {
+            "trait_type": "Beard:",
+            "value": "No Beard"
+        },
+        {
+            "trait_type": "PsychDNA:",
+            "value": "37 39 30 49"
+        }
+    ]
+}
